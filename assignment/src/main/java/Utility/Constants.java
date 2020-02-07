@@ -1,6 +1,4 @@
-/**
- * @author Manasa.Bs
- */
+
 package Utility;
 
 public interface Constants {

@@ -25,16 +25,17 @@ public class Loginpage extends Basepage{
 		@FindBy(xpath = "//button[@name='login']")
 		private WebElement submit;
 		
-		public void login(String user,String Psw)
+		public void login(String user,String Psw) throws Exception
 		{
-			user=properties.getProperty("username");
-			Psw=properties.getProperty("Pswr");
+			user=readConfiguration(Constants.propertiesFilePath, "username");
+			Psw=readConfiguration(Constants.propertiesFilePath, "password");
 			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(user);
-			driver.findElement(By.xpath("//input[@name='pass']")).sendKeys(properties.getProperty(Psw));
-			driver.findElement(By.xpath("//button[@name='login'")).click();
+			driver.findElement(By.xpath("//input[@name='pass']")).sendKeys(Psw);
+			driver.findElement(By.xpath("//input[@value='Log In']")).click();
 			
 			
 		}
+		
 		
 		
 		public void poststatus(String mes)
